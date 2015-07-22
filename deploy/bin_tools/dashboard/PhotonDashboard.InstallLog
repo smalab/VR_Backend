@@ -1,0 +1,15 @@
+﻿アセンブリ 'C:\Users\lab_2\Documents\VR_Backend\deploy\bin_Tools\dashboard\PhotonDashboard.exe' をインストールしています。
+該当するパラメータ:
+   logtoconsole = 
+   assemblypath = C:\Users\lab_2\Documents\VR_Backend\deploy\bin_Tools\dashboard\PhotonDashboard.exe
+   i = 
+   logfile = C:\Users\lab_2\Documents\VR_Backend\deploy\bin_Tools\dashboard\PhotonDashboard.InstallLog
+サービス 'PhontonDashboardService' をインストールしています...
+サービス 'PhontonDashboardService' は正常にインストールされました。
+EventLog ソース PhontonDashboardService をログ Application に作成しています...
+アセンブリ 'C:\Users\lab_2\Documents\VR_Backend\deploy\bin_Tools\dashboard\PhotonDashboard.exe' をコミットしています。
+該当するパラメータ:
+   logtoconsole = 
+   assemblypath = C:\Users\lab_2\Documents\VR_Backend\deploy\bin_Tools\dashboard\PhotonDashboard.exe
+   i = 
+   logfile = C:\Users\lab_2\Documents\VR_Backend\deploy\bin_Tools\dashboard\PhotonDashboard.InstallLog
