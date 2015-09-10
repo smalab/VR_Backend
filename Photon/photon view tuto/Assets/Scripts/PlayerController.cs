@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour {
 	}
 	
 	void Update () {
+		if (GetComponent<PhotonView>().isMine) {
 			float inputX = Input.GetAxis ("Horizontal");
 			float inputY = Input.GetAxis ("Vertical");
 			Vector2 force = new Vector2 (inputX, inputY) * movePower;
@@ -18,5 +19,6 @@ public class PlayerController : MonoBehaviour {
 			if (Input.GetButtonDown ("Jump")) {
 				GetComponent<Rigidbody2D> ().AddForce (Vector2.up * jumpPower);
 			}
+		}
 	}
 }
