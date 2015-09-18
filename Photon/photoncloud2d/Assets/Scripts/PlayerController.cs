@@ -10,13 +10,15 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Update () {
-		float inputX = Input.GetAxis ("Horizontal");
-		float inputY = Input.GetAxis ("Vertical");
-		Vector2 force = new Vector2 (inputX, inputY) * movePower;
-		GetComponent<Rigidbody2D> ().AddForce (force);
+		if (GetComponent<PhotonView>().isMine) {
+			float inputX = Input.GetAxis ("Horizontal");
+			float inputY = Input.GetAxis ("Vertical");
+			Vector2 force = new Vector2 (inputX, inputY) * movePower;
+			GetComponent<Rigidbody2D> ().AddForce (force);
 
-		if (Input.GetButtonDown ("Jump")) {
-			GetComponent<Rigidbody2D> ().AddForce (Vector2.up * jumpPower);
+			if (Input.GetButtonDown ("Jump")) {
+				GetComponent<Rigidbody2D> ().AddForce (Vector2.up * jumpPower);
+			}
 		}
 	}
 }
