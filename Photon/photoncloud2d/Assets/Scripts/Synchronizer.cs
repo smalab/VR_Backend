@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Synchronizer : Photon.MonoBehaviour {
-	
+
 	void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info){
 		if (stream.isWriting) {
 			stream.SendNext (GetComponent<Transform>().position);
