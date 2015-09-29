@@ -2,6 +2,8 @@
 using System.Collections;
 
 public class NetworkManager : Photon.MonoBehaviour {
+
+	public GameObject player;
 	
 	void Awake(){
 		PhotonNetwork.ConnectUsingSettings ("v0.1");
