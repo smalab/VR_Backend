@@ -31,11 +31,11 @@ public class Player : MonoBehaviour
 		
 		// 上・下
 		float y = Input.GetAxisRaw ("Vertical");
-		
+
 		// 移動する向きを求める
 		Vector2 direction = new Vector2 (x, y).normalized;
-		
-		// 移動の制限
+
+		// 移動
 		Move (direction);
 		
 	}
