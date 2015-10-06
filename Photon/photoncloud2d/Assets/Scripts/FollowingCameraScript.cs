@@ -14,8 +14,8 @@ public class FollowingCameraScript : MonoBehaviour {
 
 	void Update () {
 		this.transform.position = target.transform.position + distance;
-
+		
 		Vector3 lookVector = target.transform.position + lookPoint - this.transform.position;
-		this.transform.rotation = Quaternion.LookRotation (lookVector);
+		this.transform.rotation = Quaternion.LookRotation(lookVector);
 	}
 }

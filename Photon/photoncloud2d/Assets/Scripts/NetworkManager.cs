@@ -25,7 +25,7 @@ public class NetworkManager : Photon.MonoBehaviour {
 		Debug.Log ("ルームへの参加に成功しました");
 		Vector3 spawnPosition = new Vector3 (0, 2, 0);
 		var obj = PhotonNetwork.Instantiate ("PlayerPrefab", spawnPosition , Quaternion.identity, 0);
-		obj.name = "PlayerPrefab";
+		obj.name = "PlayerPrefab1";
 	}
 
 	void OnGUI(){
