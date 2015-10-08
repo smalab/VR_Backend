@@ -4,7 +4,7 @@ using System.Collections;
 public class NetworkManager : Photon.MonoBehaviour {
 
 	public GameObject player;
-	public int flag = 1;
+	public int flag;
 	public GameObject str = null;
 	
 	void Awake(){
@@ -16,6 +16,8 @@ public class NetworkManager : Photon.MonoBehaviour {
 
 	void OnJoinedLobby(){
 		PhotonNetwork.JoinRandomRoom ();
+		flag = 1;
+		Debug.Log ("ロビー参加を確認しました");
 	}
 
 	void OnPhotonRandomJoinFailed(){
