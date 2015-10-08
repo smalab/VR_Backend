@@ -4,7 +4,7 @@ using System.Collections;
 public class NetworkManager : Photon.MonoBehaviour {
 
 	public GameObject player;
-	public int flag = 0;
+	public int flag = 1;
 	public GameObject str = null;
 	
 	void Awake(){
@@ -21,15 +21,15 @@ public class NetworkManager : Photon.MonoBehaviour {
 	void OnPhotonRandomJoinFailed(){
 		Debug.Log ("ルームへの参加に失敗しました");
 		PhotonNetwork.CreateRoom (null);
+		flag = 0;
+		Debug.Log ("フラグを0にしました");
 	}
 
 	void OnJoinedRoom(){
 		Debug.Log ("ルームへの参加に成功しました");
 		Vector3 spawnPosition = new Vector3 (0, 2, 0);
 
-		if(str == GameObject.Find ("PlayerPrefab1")){
-			flag = 1;
-		}
+		Debug.Log ("判定を開始します");
 
 		if (flag == 0) {
 			var obj = PhotonNetwork.Instantiate ("PlayerPrefab", spawnPosition, Quaternion.identity, 0);
