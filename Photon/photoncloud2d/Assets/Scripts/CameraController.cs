@@ -3,14 +3,14 @@ using System.Collections;
 
 public class CameraController : MonoBehaviour {
 
-	public Vector2 SPEED = new Vector2(0.05f, 0.05f);
+	public Vector3 SPEED = new Vector3(0.05f, 0.05f, 0);
 
 	void Start () {
 	}
 
 	void Update () {
 		// 現在位置をPositionに代入
-		Vector2 Position = transform.position;
+		Vector3 Position = transform.position;
 		// 左キーを押し続けていたら
 		if (Input.GetKey (KeyCode.A)) {
 			// 代入したPositionに対して加算減算を行う
