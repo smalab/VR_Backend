@@ -4,6 +4,7 @@ using System.Collections;
 public class PlayerController : MonoBehaviour {
 	// 速度
 	public Vector2 SPEED = new Vector2(0.05f, 0.05f);
+	public static int pflag = 0;
 	// Use this for initialization
 	void Start () {
 		
@@ -11,7 +12,7 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (NetworkManager.flag == 1) {
+		if (pflag == 1) {
 			PlayerMove ();
 		}
 	}

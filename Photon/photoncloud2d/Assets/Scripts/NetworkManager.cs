@@ -24,7 +24,7 @@ public class NetworkManager : Photon.MonoBehaviour {
 		Debug.Log ("ルームへの参加に失敗しました");
 		PhotonNetwork.CreateRoom (null);
 		flag = 0;
-		Debug.Log ("フラグを0にしました");
+		Debug.Log ("flagを0にしました");
 	}
 
 	void OnJoinedRoom(){
@@ -38,9 +38,13 @@ public class NetworkManager : Photon.MonoBehaviour {
 			obj.name = "PlayerPrefab1";
 			Debug.Log ("ゲーム機です!!プレイヤーの生成に成功しました!");
 			flag = 1;
-			Debug.Log ("フラグを1にしました");
+			Debug.Log ("flagを1にしました");
+			PlayerController.pflag = 1;
+			Debug.Log ("pflagを1にしました");
 		} else {
 			Debug.Log ("観客機です!!");
+			PlayerController.pflag = 0;
+			Debug.Log ("pflagを0にしました");
 		}
 	}
 
