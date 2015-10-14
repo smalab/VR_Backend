@@ -11,12 +11,13 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		// 移動処理
-		Move();
+		if (NetworkManager.flag == 1) {
+			PlayerMove ();
+		}
 	}
 	
 	// 移動関数
-	void Move(){
+	void PlayerMove(){
 		// 現在位置をPositionに代入
 		Vector2 Position = transform.position;
 		// 左キーを押し続けていたら

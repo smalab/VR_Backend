@@ -9,6 +9,11 @@ public class CameraController : MonoBehaviour {
 	}
 
 	void Update () {
+		CameraMove ();
+
+	}
+
+	void CameraMove(){
 		// 現在位置をPositionに代入
 		Vector3 Position = transform.position;
 		// 左キーを押し続けていたら

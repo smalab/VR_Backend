@@ -4,7 +4,7 @@ using System.Collections;
 public class NetworkManager : Photon.MonoBehaviour {
 
 	public GameObject player;
-	public int flag;
+	public static int flag;
 	public GameObject str = null;
 	
 	void Awake(){
@@ -38,6 +38,7 @@ public class NetworkManager : Photon.MonoBehaviour {
 			obj.name = "PlayerPrefab1";
 			Debug.Log ("ゲーム機です!!プレイヤーの生成に成功しました!");
 			flag = 1;
+			Debug.Log ("フラグを1にしました");
 		} else {
 			Debug.Log ("観客機です!!");
 		}
