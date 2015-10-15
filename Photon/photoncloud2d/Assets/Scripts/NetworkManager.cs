@@ -39,10 +39,6 @@ public class NetworkManager : Photon.MonoBehaviour {
 			flag = 1;
 			Debug.Log ("flagを1にしました");
 
-			var cam = PhotonNetwork.Instantiate ("Main Camera", spawnPosition, Quaternion.identity, 0);
-			cam.name = "Main Camera1";
-			Debug.Log ("カメラを生成しました");
-
 			PlayerController.pflag = 1;
 			Debug.Log ("pflagを1にしました");
 			CameraController.cflag = 1;
