@@ -36,15 +36,19 @@ public class NetworkManager : Photon.MonoBehaviour {
 		if (flag == 0) {
 			var obj = PhotonNetwork.Instantiate ("PlayerPrefab", spawnPosition, Quaternion.identity, 0);
 			obj.name = "PlayerPrefab1";
-			Debug.Log ("ゲーム機です!!プレイヤーの生成に成功しました!");
 			flag = 1;
 			Debug.Log ("flagを1にしました");
 			PlayerController.pflag = 1;
 			Debug.Log ("pflagを1にしました");
+			CameraController.cflag = 1;
+			Debug.Log ("cflagを1にしました");
+			Debug.Log ("ゲーム機です!!プレイヤーの生成に成功しました!");
 		} else {
-			Debug.Log ("観客機です!!");
 			PlayerController.pflag = 0;
 			Debug.Log ("pflagを0にしました");
+			CameraController.cflag = 0;
+			Debug.Log ("cflagを0にしました");
+			Debug.Log ("観客機です!!操作をすることができません!");
 		}
 	}
 

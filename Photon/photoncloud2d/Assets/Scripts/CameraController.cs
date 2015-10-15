@@ -4,13 +4,15 @@ using System.Collections;
 public class CameraController : MonoBehaviour {
 
 	public Vector3 SPEED = new Vector3(0.05f, 0.05f, 0);
+	public static int cflag = 0;
 
 	void Start () {
 	}
 
 	void Update () {
-		CameraMove ();
-
+		if (cflag == 1) {
+			CameraMove ();
+		}
 	}
 
 	void CameraMove(){
