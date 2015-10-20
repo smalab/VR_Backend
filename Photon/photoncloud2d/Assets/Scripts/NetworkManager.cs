@@ -9,6 +9,7 @@ public class NetworkManager : Photon.MonoBehaviour {
 	
 	void Awake(){
 		PhotonNetwork.ConnectUsingSettings ("v0.1");
+		PlayerController.pflag = 2;
 	}
 	
 	void Update () {	
@@ -41,8 +42,6 @@ public class NetworkManager : Photon.MonoBehaviour {
 			flag = 1;
 			Debug.Log ("flagを1にしました");
 
-			GUILayout.Label ("プレイヤーです。→または←キーで移動。AまたはDキーでカメラの移動が可能です。");
-
 			var cam = PhotonNetwork.Instantiate ("MainCamera", CspawnPosition, Quaternion.identity, 0);
 			Debug.Log ("カメラを生成しました");
 			cam.name = "MainCamera1";
@@ -60,11 +59,18 @@ public class NetworkManager : Photon.MonoBehaviour {
 			Debug.Log ("cflagを0にしました");
 			Debug.Log ("観客機です!!操作をすることができません!");
 
-			GUILayout.Label ("観客機です。操作することができません。");
 		}
 	}
 
 	void OnGUI(){
 		GUILayout.Label (PhotonNetwork.connectionStateDetailed.ToString ());
+
+		if (PlayerController.pflag == 1) {
+			GUILayout.Label ("プレイヤーです。→または←キーで移動。AまたはDキーでカメラの移動が可能です。");
+		} else if (PlayerController.pflag == 0) {
+			GUILayout.Label ("観客機です。操作することができません。");
+		} else if (PlayerController.pflag == 2) {
+			GUILayout.Label ("待機中...");
+		}
 	}
 }
