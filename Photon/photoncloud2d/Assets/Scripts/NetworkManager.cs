@@ -30,6 +30,7 @@ public class NetworkManager : Photon.MonoBehaviour {
 	void OnJoinedRoom(){
 		Debug.Log ("ルームへの参加に成功しました");
 		Vector3 spawnPosition = new Vector3 (0, 2, 0);
+		Vector3 CspawnPosition = new Vector3 (0, 0.0001f, -10);
 
 		Debug.Log ("判定を開始します");
 
@@ -40,7 +41,7 @@ public class NetworkManager : Photon.MonoBehaviour {
 			flag = 1;
 			Debug.Log ("flagを1にしました");
 
-			var cam = PhotonNetwork.Instantiate ("MainCamera", spawnPosition, Quaternion.identity, 0);
+			var cam = PhotonNetwork.Instantiate ("MainCamera", CspawnPosition, Quaternion.identity, 0);
 			Debug.Log ("カメラを生成しました");
 			cam.name = "MainCamera1";
 			Debug.Log ("カメラの名前変更に成功しました");
