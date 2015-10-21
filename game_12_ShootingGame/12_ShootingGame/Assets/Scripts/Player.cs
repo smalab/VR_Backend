@@ -87,6 +87,7 @@ public class Player : MonoBehaviour
 		
 			// プレイヤーを削除
 			Destroy (gameObject);
+
 		}
 	}
 }

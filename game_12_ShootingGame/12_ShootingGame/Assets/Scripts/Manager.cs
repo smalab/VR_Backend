@@ -4,6 +4,8 @@ public class Manager : MonoBehaviour
 {
 	// Playerプレハブ
 	public GameObject player;
+
+	public bool flag = false;
 	
 	// タイトル
 	private GameObject title;
@@ -12,13 +14,20 @@ public class Manager : MonoBehaviour
 	{
 		// Titleゲームオブジェクトを検索し取得する
 		title = GameObject.Find ("Title");
+
+		flag = false;
 	}
 	
 	void Update ()
 	{
+		if (IsPlaying () == false && flag == true) {
+			Application.LoadLevel("Stage");
+		}
+
 		// ゲーム中ではなく、Xキーが押されたらtrueを返す。
 		if (IsPlaying () == false && Input.GetKeyDown (KeyCode.X)) {
 			GameStart ();
+			flag = true;
 		}
 	}
 	
