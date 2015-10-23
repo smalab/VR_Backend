@@ -26,41 +26,40 @@ public class Player : MonoBehaviour
 	
 	void Update ()
 	{
-		// 右・左
-		float x = Input.GetAxisRaw ("Horizontal");
-		
-		// 上・下
-		float y = Input.GetAxisRaw ("Vertical");
-
-		// 移動する向きを求める
-		Vector2 direction = new Vector2 (x, y).normalized;
-
 		// 移動
-		Move (direction);
+		Move ();
 		
 	}
 
 	// 機体の移動
-	void Move (Vector2 direction)
-	{
-		// 画面左下のワールド座標をビューポートから取得
-		Vector2 min = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
-		
-		// 画面右上のワールド座標をビューポートから取得
-		Vector2 max = Camera.main.ViewportToWorldPoint(new Vector2(1, 1));
-		
+	void Move (){
+
 		// プレイヤーの座標を取得
 		Vector2 pos = transform.position;
-		
-		// 移動量を加える
-		pos += direction  * spaceship.speed * Time.deltaTime;
-		
-		// プレイヤーの位置が画面内に収まるように制限をかける
-		pos.x = Mathf.Clamp (pos.x, min.x, max.x);
-		pos.y = Mathf.Clamp (pos.y, min.y, max.y);
-		
-		// 制限をかけた値をプレイヤーの位置とする
+		Debug.Log ("posを取得");
+
+		if(Input.GetKey("left")){
+			// 代入したPositionに対して加算減算を行う
+			pos.x -= 0.2f;
+		}
+
+		if(Input.GetKey("right")){ // 右キーを押し続けていたら
+			// 代入したPositionに対して加算減算を行う
+			pos.x += 0.2f;
+		}
+
+		if(Input.GetKey("up")){ // 右キーを押し続けていたら
+			// 代入したPositionに対して加算減算を行う
+			pos.y += 0.2f;
+		}
+
+		if(Input.GetKey("down")){ // 右キーを押し続けていたら
+			// 代入したPositionに対して加算減算を行う
+			pos.y -= 0.2f;
+		}
+		// 現在の位置に加算減算を行ったPositionを代入する
 		transform.position = pos;
+
 	}
 	
 	// ぶつかった瞬間に呼び出される

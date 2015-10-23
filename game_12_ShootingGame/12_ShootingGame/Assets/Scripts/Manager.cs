@@ -35,7 +35,8 @@ public class Manager : MonoBehaviour
 	{
 		// ゲームスタート時に、タイトルを非表示にしてプレイヤーを作成する
 		title.SetActive (false);
-		Instantiate (player, player.transform.position, player.transform.rotation);
+		var obj = Instantiate (player, player.transform.position, player.transform.rotation);
+		obj.name = "Player";
 	}
 	
 	public void GameOver ()
