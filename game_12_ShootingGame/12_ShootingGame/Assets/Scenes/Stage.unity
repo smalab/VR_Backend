@@ -247,7 +247,7 @@ Transform:
   m_GameObject: {fileID: 260108595}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 104344918}
   - {fileID: 1122725688}
@@ -307,48 +307,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7757a0e486cb744ab849480c344c4ae7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1001 &459631583
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 429060, guid: 25213bcee8a0e7149875b85768809d9b, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 429060, guid: 25213bcee8a0e7149875b85768809d9b, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 429060, guid: 25213bcee8a0e7149875b85768809d9b, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -2
-      objectReference: {fileID: 0}
-    - target: {fileID: 429060, guid: 25213bcee8a0e7149875b85768809d9b, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 429060, guid: 25213bcee8a0e7149875b85768809d9b, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 429060, guid: 25213bcee8a0e7149875b85768809d9b, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 429060, guid: 25213bcee8a0e7149875b85768809d9b, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 429060, guid: 25213bcee8a0e7149875b85768809d9b, type: 2}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 25213bcee8a0e7149875b85768809d9b, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &654582541
 GameObject:
   m_ObjectHideFlags: 0
@@ -675,7 +633,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 100000, guid: 9464abb12d8cd4f7fbe0bdef70a00d0c, type: 2}
-  cam: {fileID: 0}
+  MainCamera: {fileID: 140986, guid: 58675c849708a284aa69a1e97ea2ce82, type: 2}
   flag: 0
 --- !u!4 &1412233681
 Transform:

@@ -4,7 +4,9 @@ public class Manager : MonoBehaviour
 {
 	// Playerプレハブ
 	public GameObject player;
-	public GameObject cam;
+	public GameObject MainCamera;
+	Vector3 CspawnPosition = new Vector3 (0, -2.5f, -2);
+
 
 	public bool flag = false;
 
@@ -39,6 +41,10 @@ public class Manager : MonoBehaviour
 
 		var obj = Instantiate (player, player.transform.position, player.transform.rotation);
 		obj.name = "Player";
+
+		var cam = Instantiate (MainCamera, CspawnPosition, Quaternion.identity);
+		Debug.Log ("カメラを生成しました");
+		cam.name = "MainCamera";
 	}
 	
 	public void GameOver ()
