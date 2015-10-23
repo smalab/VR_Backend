@@ -4,9 +4,10 @@ public class Manager : MonoBehaviour
 {
 	// Playerプレハブ
 	public GameObject player;
+	public GameObject cam;
 
 	public bool flag = false;
-	
+
 	// タイトル
 	private GameObject title;
 	
@@ -35,6 +36,7 @@ public class Manager : MonoBehaviour
 	{
 		// ゲームスタート時に、タイトルを非表示にしてプレイヤーを作成する
 		title.SetActive (false);
+
 		var obj = Instantiate (player, player.transform.position, player.transform.rotation);
 		obj.name = "Player";
 	}
