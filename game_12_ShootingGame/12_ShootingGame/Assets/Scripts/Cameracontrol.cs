@@ -20,7 +20,7 @@ public class Cameracontrol : MonoBehaviour {
 			// 代入したPositionに対して加算減算を行う
 			cpos.x -= 0.2f;
 		}
-		
+
 		if(Input.GetKey("right")){ // 右キーを押し続けていたら
 			// 代入したPositionに対して加算減算を行う
 			cpos.x += 0.2f;

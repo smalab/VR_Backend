@@ -634,7 +634,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 100000, guid: 9464abb12d8cd4f7fbe0bdef70a00d0c, type: 2}
   MainCamera: {fileID: 102186, guid: 58675c849708a284aa69a1e97ea2ce82, type: 2}
-  CspawnPosition: {x: 0, y: -2.5, z: -2}
   flag: 0
 --- !u!4 &1412233681
 Transform:
