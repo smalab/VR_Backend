@@ -16,9 +16,6 @@ public class Manager : MonoBehaviour
 		// Titleゲームオブジェクトを検索し取得する
 		title = GameObject.Find ("Title");
 
-		var cam = Instantiate (MainCamera, CspawnPosition, MainCamera.transform.rotation);
-		cam.name = "MainCamera111";
-
 		flag = false;
 	}
 	

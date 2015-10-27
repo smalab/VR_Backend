@@ -4,7 +4,7 @@ using System.Collections;
 public class Cameracontrol : MonoBehaviour {
 
 	void Start () {
-		transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ;
+		transform.Translate (Vector3.back * 2);
 	}
 	
 	void Update () {
@@ -14,7 +14,7 @@ public class Cameracontrol : MonoBehaviour {
 	void CameraMove (){
 		
 		// プレイヤーの座標を取得
-		Vector2 cpos = transform.position;
+		Vector3 cpos = transform.position;
 		
 		if(Input.GetKey("left")){
 			// 代入したPositionに対して加算減算を行う
