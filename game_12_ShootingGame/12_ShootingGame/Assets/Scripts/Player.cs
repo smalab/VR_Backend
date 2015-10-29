@@ -5,6 +5,10 @@ public class Player : MonoBehaviour
 {
 	// Spaceshipコンポーネント
 	Spaceship spaceship;
+	int xMoveLimitMin = -4;
+	int xMoveLimitMax = 4;
+	int yMoveLimitMin = -3;
+	int yMoveLimitMax = 3;
 	
 	IEnumerator Start ()
 	{
@@ -28,6 +32,9 @@ public class Player : MonoBehaviour
 	{
 		// 移動
 		Move ();
+
+		// 移動制限
+		MoveArea ();
 		
 	}
 
@@ -61,7 +68,14 @@ public class Player : MonoBehaviour
 		transform.position = pos;
 
 	}
-	
+
+	// 移動制限
+	void MoveArea (){
+		Vector2 pos = transform.position;
+		pos.x = Mathf.Clamp (pos.x, xMoveLimitMin, xMoveLimitMax);
+		pos.y = Mathf.Clamp (pos.y, yMoveLimitMin, yMoveLimitMax);
+	}
+
 	// ぶつかった瞬間に呼び出される
 	void OnTriggerEnter2D (Collider2D c)
 	{
