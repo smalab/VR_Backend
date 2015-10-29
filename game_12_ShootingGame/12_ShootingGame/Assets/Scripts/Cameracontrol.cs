@@ -4,7 +4,6 @@ using System.Collections;
 public class Cameracontrol : MonoBehaviour {
 
 	void Start () {
-		transform.Translate (Vector3.back * 2);
 	}
 	
 	void Update () {

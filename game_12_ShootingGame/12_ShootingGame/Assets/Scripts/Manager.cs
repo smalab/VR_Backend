@@ -5,7 +5,7 @@ public class Manager : MonoBehaviour
 	// Playerプレハブ
 	public GameObject player;
 	public GameObject MainCamera;
-	public static Vector3 CspawnPosition = new Vector3 (0.0f, -2.5f, -2.0f);
+	public static Vector3 CspawnPosition = new Vector3 (0.0f, -2.5f, -4.0f);
 	public bool flag = false;
 
 	// タイトル
@@ -16,6 +16,8 @@ public class Manager : MonoBehaviour
 		// Titleゲームオブジェクトを検索し取得する
 		title = GameObject.Find ("Title");
 
+		var cam = Instantiate (MainCamera, CspawnPosition, MainCamera.transform.rotation);
+		cam.name = "Camera";
 		flag = false;
 	}
 	
