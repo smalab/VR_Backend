@@ -74,6 +74,7 @@ public class Player : MonoBehaviour
 		Vector2 pos = transform.position;
 		pos.x = Mathf.Clamp (pos.x, xMoveLimitMin, xMoveLimitMax);
 		pos.y = Mathf.Clamp (pos.y, yMoveLimitMin, yMoveLimitMax);
+		transform.position = pos;
 	}
 
 	// ぶつかった瞬間に呼び出される

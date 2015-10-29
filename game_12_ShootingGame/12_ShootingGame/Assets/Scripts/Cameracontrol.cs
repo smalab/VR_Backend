@@ -3,16 +3,22 @@ using System.Collections;
 
 public class Cameracontrol : MonoBehaviour {
 
+	int xMoveLimitMin = -4;
+	int xMoveLimitMax = 4;
+	int yMoveLimitMin = -3;
+	int yMoveLimitMax = 3;
+
 	void Start () {
 	}
 	
 	void Update () {
-			CameraMove ();
+		CameraMove ();
+		CameraMoveArea ();
 	}
 	
 	void CameraMove (){
 		
-		// プレイヤーの座標を取得
+		// カメラの座標を取得
 		Vector3 cpos = transform.position;
 		
 		if(Input.GetKey("left")){
@@ -38,5 +44,12 @@ public class Cameracontrol : MonoBehaviour {
 		transform.position = cpos;
 		
 	}
-	
+
+	void CameraMoveArea(){
+		Vector3 cpos = transform.position;
+		cpos.x = Mathf.Clamp (cpos.x, xMoveLimitMin, xMoveLimitMax);
+		cpos.y = Mathf.Clamp (cpos.y, yMoveLimitMin, yMoveLimitMax);
+		transform.position = cpos;
+	}
+
 }
