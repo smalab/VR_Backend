@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
 	int xMoveLimitMax = 4;
 	int yMoveLimitMin = -3;
 	int yMoveLimitMax = 3;
+	bool push = false;
 	
 	IEnumerator Start ()
 	{
@@ -27,11 +28,20 @@ public class Player : MonoBehaviour
 			yield return new WaitForSeconds (spaceship.shotDelay);
 		}
 	}
+
+	public void PushDown(){
+		push = true;
+	}
+
+	public void PushUp(){
+		push = false;
+	}
 	
 	void Update ()
 	{
-		// 移動
-		Move ();
+		if (push == true) {
+			Move ();
+		}
 
 		// 移動制限
 		MoveArea ();
@@ -43,26 +53,9 @@ public class Player : MonoBehaviour
 		
 		// プレイヤーの座標を取得
 		Vector2 pos = transform.position;
-		
-		if(Input.GetKey("left")){
-			// 代入したPositionに対して加算減算を行う
-			pos.x -= 0.2f;
-		}
-		
-		if(Input.GetKey("right")){ // 右キーを押し続けていたら
-			// 代入したPositionに対して加算減算を行う
-			pos.x += 0.2f;
-		}
-		
-		if(Input.GetKey("up")){ // 右キーを押し続けていたら
-			// 代入したPositionに対して加算減算を行う
-			pos.y += 0.2f;
-		}
-		
-		if(Input.GetKey("down")){ // 右キーを押し続けていたら
-			// 代入したPositionに対して加算減算を行う
-			pos.y -= 0.2f;
-		}
+
+		pos.x += 0.1f;
+
 		// 現在の位置に加算減算を行ったPositionを代入する
 		transform.position = pos;
 		
