@@ -12,8 +12,10 @@ public class Cameracontrol : MonoBehaviour {
 	}
 	
 	void Update () {
-		CameraMove ();
-		CameraMoveArea ();
+		if (Manager.flag == true) {
+			CameraMove ();
+			CameraMoveArea ();
+		}
 	}
 	
 	void CameraMove (){
