@@ -40,33 +40,32 @@ public class Player : MonoBehaviour
 
 	// 機体の移動
 	void Move (){
-
+		
 		// プレイヤーの座標を取得
 		Vector2 pos = transform.position;
-		Debug.Log ("posを取得");
-
+		
 		if(Input.GetKey("left")){
 			// 代入したPositionに対して加算減算を行う
 			pos.x -= 0.2f;
 		}
-
+		
 		if(Input.GetKey("right")){ // 右キーを押し続けていたら
 			// 代入したPositionに対して加算減算を行う
 			pos.x += 0.2f;
 		}
-
+		
 		if(Input.GetKey("up")){ // 右キーを押し続けていたら
 			// 代入したPositionに対して加算減算を行う
 			pos.y += 0.2f;
 		}
-
+		
 		if(Input.GetKey("down")){ // 右キーを押し続けていたら
 			// 代入したPositionに対して加算減算を行う
 			pos.y -= 0.2f;
 		}
 		// 現在の位置に加算減算を行ったPositionを代入する
 		transform.position = pos;
-
+		
 	}
 
 	// 移動制限
