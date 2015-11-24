@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class Manager : MonoBehaviour
 {
@@ -10,13 +11,25 @@ public class Manager : MonoBehaviour
 
 	// タイトル
 	private GameObject title;
-	
+
+	void Awake(){
+		PhotonNetwork.ConnectUsingSettings ("v0.1");
+	}
+
+	void OnJoinedLobby(){
+		PhotonNetwork.JoinRandomRoom ();
+	}
+
+	void OnPhotonRandomJoinFailed(){
+		PhotonNetwork.CreateRoom (null);
+	}
+
 	void Start ()
 	{
 		// Titleゲームオブジェクトを検索し取得する
 		title = GameObject.Find ("Title");
 
-		var cam = Instantiate (MainCamera, CspawnPosition, MainCamera.transform.rotation);
+		var cam = Photon.MonoBehaviour.Instantiate (MainCamera, CspawnPosition, MainCamera.transform.rotation);
 		cam.name = "Camera";
 		flag = false;
 	}
@@ -53,5 +66,9 @@ public class Manager : MonoBehaviour
 	{
 		// ゲーム中かどうかはタイトルの表示/非表示で判断する
 		return title.activeSelf == false;
+	}
+
+	void OnGUI(){
+		GUILayout.Label (PhotonNetwork.connectionStateDetailed.ToString ());
 	}
 }
