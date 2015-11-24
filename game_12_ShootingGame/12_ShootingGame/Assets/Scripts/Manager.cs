@@ -11,7 +11,7 @@ public class Manager : MonoBehaviour
 	public static bool flag = false;
 
 	// タイトル
-	private GameObject title;
+	public GameObject title;
 
 	void Awake(){
 		PhotonNetwork.ConnectUsingSettings ("v0.1");
