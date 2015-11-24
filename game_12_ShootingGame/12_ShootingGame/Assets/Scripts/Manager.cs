@@ -3,7 +3,8 @@ using System.Collections;
 
 public class Manager : MonoBehaviour
 {
-	// Playerプレハブ
+
+	public int mainflag;
 	public GameObject player;
 	public GameObject MainCamera;
 	public static Vector3 CspawnPosition = new Vector3 (0.0f, -1.5f, -4.0f);
@@ -18,18 +19,25 @@ public class Manager : MonoBehaviour
 
 	void OnJoinedLobby(){
 		PhotonNetwork.JoinRandomRoom ();
+		Debug.Log ("ロビー参加を確認しました");
+		mainflag = 1;
+		Debug.Log ("mainflagを1にしました");
 	}
 
 	void OnPhotonRandomJoinFailed(){
+		Debug.Log ("ルームへの参加に失敗しました");
 		PhotonNetwork.CreateRoom (null);
+		mainflag = 0;
+		Debug.Log ("mainflagを0にしました");
 	}
 
-	void Start ()
-	{
-		// Titleゲームオブジェクトを検索し取得する
-		title = GameObject.Find ("Title");
+	void OnJoinedRoom(){
+		Player.pflag = 1;
+		Debug.Log ("pflagを1にしました");
 
-		var cam = Photon.MonoBehaviour.Instantiate (MainCamera, CspawnPosition, MainCamera.transform.rotation);
+		title = GameObject.Find ("Title");
+		
+		var cam = PhotonNetwork.Instantiate ("MainCamera", CspawnPosition, MainCamera.transform.rotation, 0);
 		cam.name = "Camera";
 		flag = false;
 	}

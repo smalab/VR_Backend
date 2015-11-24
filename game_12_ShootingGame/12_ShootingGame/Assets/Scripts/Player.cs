@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
 	int yMoveLimitMin = -3;
 	int yMoveLimitMax = 3;
 	bool push = false;
+	public static int pflag = 0;
 	
 	IEnumerator Start ()
 	{
@@ -37,10 +38,11 @@ public class Player : MonoBehaviour
 		push = false;
 	}
 	
-	void Update ()
-	{
-		if (push == true) {
-			Move ();
+	void Update (){
+		if (pflag == 1) {
+			if (push == true) {
+				Move ();
+			}	
 		}
 
 		// 移動制限
