@@ -19,6 +19,8 @@ public class Manager : MonoBehaviour
 
 	void OnJoinedLobby(){
 		PhotonNetwork.JoinRandomRoom ();
+		mainflag = 1;
+		Debug.Log ("mainflagを1にしました");
 		Debug.Log ("ロビー参加を確認しました");
 	}
 
@@ -30,19 +32,20 @@ public class Manager : MonoBehaviour
 	}
 
 	void OnJoinedRoom(){
-		mainflag = 1;
-		Debug.Log ("mainflagを1にしました");
 		Player.pflag = 1;
 		Debug.Log ("pflagを1にしました");
 
-		title = GameObject.Find ("Title");
-		Debug.Log ("titleを探しました");
+		if (mainflag == 0) {
+			title = GameObject.Find ("Title");
+			Debug.Log ("titleを探しました");
 		
-		var cam = PhotonNetwork.Instantiate ("MainCamera", CspawnPosition, MainCamera.transform.rotation, 0);
-		cam.name = "Camera";
-		Debug.Log ("Cameraを生成しました");
-		flag = false;
-		Debug.Log ("flagをfalseにしました");
+			var cam = PhotonNetwork.Instantiate ("MainCamera", CspawnPosition, MainCamera.transform.rotation, 0);
+			cam.name = "Camera";
+			Debug.Log ("Cameraを生成しました");
+			flag = false;
+			Debug.Log ("flagをfalseにしました");
+		} else {
+		}
 	}
 	
 	void Update ()

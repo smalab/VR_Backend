@@ -7,14 +7,17 @@ public class Cameracontrol : MonoBehaviour {
 	int xMoveLimitMax = 4;
 	int yMoveLimitMin = -3;
 	int yMoveLimitMax = 3;
+	public static int cflag;
 
 	void Start () {
 	}
 	
 	void Update () {
 		if (Manager.flag == true) {
-			CameraMove ();
-			CameraMoveArea ();
+			if(cflag == 1){
+				CameraMove ();
+				CameraMoveArea ();
+			}
 		}
 	}
 	
