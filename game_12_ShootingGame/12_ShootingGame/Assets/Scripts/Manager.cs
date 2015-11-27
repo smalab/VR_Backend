@@ -36,10 +36,13 @@ public class Manager : MonoBehaviour
 		Debug.Log ("pflagを1にしました");
 
 		title = GameObject.Find ("Title");
+		Debug.Log ("titleを探しました");
 		
 		var cam = PhotonNetwork.Instantiate ("MainCamera", CspawnPosition, MainCamera.transform.rotation, 0);
 		cam.name = "Camera";
+		Debug.Log ("Cameraを生成しました");
 		flag = false;
+		Debug.Log ("flagをfalseにしました");
 	}
 	
 	void Update ()
