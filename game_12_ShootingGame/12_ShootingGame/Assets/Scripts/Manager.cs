@@ -8,6 +8,7 @@ public class Manager : MonoBehaviour
 	public GameObject player;
 	public GameObject MainCamera;
 	public static Vector3 CspawnPosition = new Vector3 (0.0f, -1.5f, -4.0f);
+	public static Vector3 PspawnPosition = new Vector3 (0.0f, -1.5f, 0.0f);
 	public static bool flag = false;
 
 	// タイトル
@@ -32,12 +33,12 @@ public class Manager : MonoBehaviour
 	}
 
 	void OnJoinedRoom(){
-		Player.pflag = 1;
-		Debug.Log ("pflagを1にしました");
-
 		if (mainflag == 0) {
 			title = GameObject.Find ("Title");
 			Debug.Log ("titleを探しました");
+
+			Player.pflag = 1;
+			Cameracontrol.cflag = 1;
 		
 			var cam = PhotonNetwork.Instantiate ("MainCamera", CspawnPosition, MainCamera.transform.rotation, 0);
 			cam.name = "Camera";
@@ -67,6 +68,9 @@ public class Manager : MonoBehaviour
 		// ゲームスタート時に、タイトルを非表示にしてプレイヤーを作成する
 		title.SetActive (false);
 
+		var ply = PhotonNetwork.Instantiate ("Player", PspawnPosition, Player.transform.rotation, 0);
+		ply.name = "PlayeR";
+
 	}
 	
 	public void GameOver ()
@@ -84,5 +88,10 @@ public class Manager : MonoBehaviour
 
 	void OnGUI(){
 		GUILayout.Label (PhotonNetwork.connectionStateDetailed.ToString ());
+		if (mainflag == 0) {
+			GUILayout.Label ("プレイヤー機です!操作できます!");
+		} else if (mainflag == 1) {
+			GUILayout.Label ("観客機です!操作できません!");
+		}
 	}
 }
