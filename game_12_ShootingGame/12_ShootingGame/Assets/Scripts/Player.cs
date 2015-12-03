@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
 	int xMoveLimitMax = 4;
 	int yMoveLimitMin = -3;
 	int yMoveLimitMax = 3;
-	bool push = false;
+	public static bool push = false;
 	public static int pflag = 0;
 	
 	IEnumerator Start ()
@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
 
 	public void PushDown(){
 		push = true;
+		Debug.Log ("ボタン押されている");
 	}
 
 	public void PushUp(){
@@ -39,7 +40,8 @@ public class Player : MonoBehaviour
 	}
 	
 	void Update (){
-		if (push) {
+		Debug.Log ("data update");
+		if (push == true) {
 			Debug.Log ("move実行");
 			Move ();
 		}
