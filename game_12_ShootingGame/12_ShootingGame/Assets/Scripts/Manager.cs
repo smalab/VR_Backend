@@ -56,9 +56,10 @@ public class Manager : MonoBehaviour
 		}
 
 		// ゲーム中ではなく、Xキーが押されたらtrueを返す。
-		if (IsPlaying () == false && Input.GetKeyDown (KeyCode.X)) {
+		if (IsPlaying () == false && StartButton.SB == 1) {
 			GameStart ();
 			flag = true;
+			StartButton.SB = 0;
 		}
 
 	}
