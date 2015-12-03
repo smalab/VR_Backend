@@ -68,7 +68,7 @@ public class Manager : MonoBehaviour
 		// ゲームスタート時に、タイトルを非表示にしてプレイヤーを作成する
 		title.SetActive (false);
 
-		var ply = PhotonNetwork.Instantiate ("Player", PspawnPosition, Player.transform.rotation, 0);
+		var ply = PhotonNetwork.Instantiate ("Player", PspawnPosition, Quaternion.identity, 0);
 		ply.name = "PlayeR";
 
 	}
