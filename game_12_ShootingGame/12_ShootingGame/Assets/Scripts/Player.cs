@@ -39,10 +39,9 @@ public class Player : MonoBehaviour
 	}
 	
 	void Update (){
-		if (pflag == 1) {
-			if (push == true) {
-				Move ();
-			}	
+		if (push) {
+			Debug.Log ("move実行");
+			Move ();
 		}
 
 		// 移動制限
