@@ -8,18 +8,25 @@ public class Cameracontrol : MonoBehaviour {
 	int yMoveLimitMin = -3;
 	int yMoveLimitMax = 3;
 	public static int cflag;
+	public static bool cpush = false;
 
 	void Start () {
 	}
 
+	public void PushDown(){
+		cpush = true;
+		Debug.Log ("ボタン押されている");
+	}
+	
+	public void PushUp(){
+		cpush = false;
+	}
+
 	void Update () {
 		if (Manager.flag == true) {
-			Debug.Log ("1");
 			if (cflag == 1) {
-				Debug.Log ("2");
-				if (Player.push == true) {
+				if (cpush == true) {
 					CameraMove ();
-					Debug.Log ("3");
 				}
 			}
 		}
@@ -31,25 +38,7 @@ public class Cameracontrol : MonoBehaviour {
 		// カメラの座標を取得
 		Vector3 cpos = transform.position;
 		
-		if(Input.GetKey("left")){
-			// 代入したPositionに対して加算減算を行う
-			cpos.x -= 0.2f;
-		}
-
-		if(Input.GetKey("right")){ // 右キーを押し続けていたら
-			// 代入したPositionに対して加算減算を行う
-			cpos.x += 0.2f;
-		}
-		
-		if(Input.GetKey("up")){ // 右キーを押し続けていたら
-			// 代入したPositionに対して加算減算を行う
-			cpos.y += 0.2f;
-		}
-		
-		if(Input.GetKey("down")){ // 右キーを押し続けていたら
-			// 代入したPositionに対して加算減算を行う
-			cpos.y -= 0.2f;
-		}
+		cpos.x += 0.1f;
 		// 現在の位置に加算減算を行ったPositionを代入する
 		transform.position = cpos;
 		

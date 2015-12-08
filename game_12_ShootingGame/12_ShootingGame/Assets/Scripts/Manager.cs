@@ -20,9 +20,8 @@ public class Manager : MonoBehaviour
 
 	void OnJoinedLobby(){
 		PhotonNetwork.JoinRandomRoom ();
-		mainflag = 1;
-		Debug.Log ("mainflagを1にしました");
 		Debug.Log ("ロビー参加を確認しました");
+		mainflag = 1;
 	}
 
 	void OnPhotonRandomJoinFailed(){
