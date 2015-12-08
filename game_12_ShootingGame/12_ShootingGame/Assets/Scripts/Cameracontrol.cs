@@ -13,10 +13,17 @@ public class Cameracontrol : MonoBehaviour {
 	}
 
 	void Update () {
-		if (Manager.flag == true && cflag == 1 && Player.push == true) {
-				CameraMove ();
-				CameraMoveArea ();
+		if (Manager.flag == true) {
+			Debug.Log ("1");
+			if (cflag == 1) {
+				Debug.Log ("2");
+				if (Player.push == true) {
+					CameraMove ();
+					Debug.Log ("3");
+				}
+			}
 		}
+				CameraMoveArea ();
 	}
 	
 	void CameraMove (){
