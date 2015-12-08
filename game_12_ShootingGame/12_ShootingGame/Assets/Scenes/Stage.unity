@@ -1044,7 +1044,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c85257fa188b84eac8e84ea49bd42f5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainflag: 0
   player: {fileID: 100000, guid: 9464abb12d8cd4f7fbe0bdef70a00d0c, type: 2}
   MainCamera: {fileID: 128460, guid: 655af658d30f5f549aeb4d11b76e1db0, type: 2}
   title: {fileID: 1223237851}

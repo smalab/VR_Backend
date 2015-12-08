@@ -4,7 +4,7 @@ using System.Collections;
 public class Manager : MonoBehaviour
 {
 
-	public int mainflag;
+	public static int mainflag;
 	public GameObject player;
 	public GameObject MainCamera;
 	public static Vector3 CspawnPosition = new Vector3 (0.0f, -1.5f, -4.0f);
@@ -54,7 +54,6 @@ public class Manager : MonoBehaviour
 			Application.LoadLevel("Stage");
 		}
 
-		// ゲーム中ではなく、Xキーが押されたらtrueを返す。
 		if (IsPlaying () == false && StartButton.SB == 1) {
 			GameStart ();
 			flag = true;
@@ -68,8 +67,10 @@ public class Manager : MonoBehaviour
 		// ゲームスタート時に、タイトルを非表示にしてプレイヤーを作成する
 		title.SetActive (false);
 
-		var ply = PhotonNetwork.Instantiate ("Player", PspawnPosition, Quaternion.identity, 0);
-		ply.name = "PlayeR";
+		if (mainflag == 0) {
+			var ply = PhotonNetwork.Instantiate ("Player", PspawnPosition, Quaternion.identity, 0);
+			ply.name = "PlayeR";
+		}
 
 	}
 	

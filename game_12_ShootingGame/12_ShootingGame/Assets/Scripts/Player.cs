@@ -40,9 +40,7 @@ public class Player : MonoBehaviour
 	}
 	
 	void Update (){
-		Debug.Log ("data update");
-		if (push == true) {
-			Debug.Log ("move実行");
+		if (push == true && Manager.mainflag == 0) {
 			Move ();
 		}
 
