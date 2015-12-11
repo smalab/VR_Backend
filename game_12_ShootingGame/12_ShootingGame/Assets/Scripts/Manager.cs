@@ -15,7 +15,9 @@ public class Manager : MonoBehaviour
 	public GameObject title;
 
 	void Awake(){
+		Debug.Log ("awake");
 		PhotonNetwork.ConnectUsingSettings ("v0.1");
+
 	}
 
 	void OnJoinedLobby(){
