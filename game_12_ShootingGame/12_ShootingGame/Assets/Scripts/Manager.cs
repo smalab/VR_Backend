@@ -96,5 +96,6 @@ public class Manager : MonoBehaviour
 		} else if (mainflag == 1) {
 			GUILayout.Label ("観客機です!操作できません!");
 		}
+		GUILayout.Label (PhotonNetwork.time.ToString ());
 	}
 }
