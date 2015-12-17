@@ -10,6 +10,7 @@ public class Manager : MonoBehaviour
 	public static Vector3 CspawnPosition = new Vector3 (0.0f, -1.5f, -4.0f);
 	public static Vector3 PspawnPosition = new Vector3 (0.0f, -1.5f, 0.0f);
 	public static bool flag = false;
+	public static float duration;
 
 	// タイトル
 	public GameObject title;
@@ -50,8 +51,7 @@ public class Manager : MonoBehaviour
 		}
 	}
 	
-	void Update ()
-	{
+	void Update (){
 		if (IsPlaying () == false && flag == true) {
 			Application.LoadLevel("Stage");
 		}
@@ -96,6 +96,8 @@ public class Manager : MonoBehaviour
 		} else if (mainflag == 1) {
 			GUILayout.Label ("観客機です!操作できません!");
 		}
-		GUILayout.Label (PhotonNetwork.time.ToString ());
+		GUILayout.Space (20);
+		GUILayout.Label (PhotonNetwork.time.ToString());
+		GUILayout.Label (Player.pushtime);
 	}
 }

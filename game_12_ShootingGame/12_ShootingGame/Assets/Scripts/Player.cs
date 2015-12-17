@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
 	int yMoveLimitMax = 3;
 	public static bool push = false;
 	public static int pflag = 0;
+	public static string pushtime;
 	
 	IEnumerator Start ()
 	{
@@ -42,6 +43,7 @@ public class Player : MonoBehaviour
 	void Update (){
 		if (push == true && Manager.mainflag == 0) {
 			Move ();
+			pushtime = PhotonNetwork.time.ToString();
 		}
 
 		// 移動制限
