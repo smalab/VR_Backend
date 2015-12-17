@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
 	public static bool push = false;
 	public static int pflag = 0;
 	public static string pushtime;
+	public static bool timepush = false;
+	public static string specttime;
 	
 	IEnumerator Start ()
 	{
@@ -33,7 +35,6 @@ public class Player : MonoBehaviour
 
 	public void PushDown(){
 		push = true;
-		Debug.Log ("ボタン押されている");
 	}
 
 	public void PushUp(){
@@ -44,6 +45,12 @@ public class Player : MonoBehaviour
 		if (push == true && Manager.mainflag == 0) {
 			Move ();
 			pushtime = PhotonNetwork.time.ToString();
+			timepush = true;
+		}
+
+		if (timepush == true) {
+			specttime = PhotonNetwork.time.ToString ();
+			timepush = false;
 		}
 
 		// 移動制限
