@@ -9,6 +9,7 @@ public class Cameracontrol : MonoBehaviour {
 	int yMoveLimitMax = 3;
 	public static int cflag;
 	public static bool cpush = false;
+	public static string cctime;
 
 	void Start () {
 	}
@@ -41,6 +42,8 @@ public class Cameracontrol : MonoBehaviour {
 		cpos.x += 0.1f;
 		// 現在の位置に加算減算を行ったPositionを代入する
 		transform.position = cpos;
+
+		cctime = PhotonNetwork.time.ToString ();
 		
 	}
 

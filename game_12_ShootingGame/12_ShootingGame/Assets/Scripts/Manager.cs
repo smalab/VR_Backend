@@ -11,6 +11,7 @@ public class Manager : MonoBehaviour
 	public static Vector3 PspawnPosition = new Vector3 (0.0f, -1.5f, 0.0f);
 	public static bool flag = false;
 	public static string LagTime;
+	public static int spectflag = 0;
 
 	// タイトル
 	public GameObject title;
@@ -41,6 +42,8 @@ public class Manager : MonoBehaviour
 			cam.name = "Camera";
 			flag = false;
 		} else {
+			Application.LoadLevel("Spect");
+			spectflag = 1;
 		}
 	}
 	
@@ -95,7 +98,7 @@ public class Manager : MonoBehaviour
 			GUILayout.Space (20);
 			GUILayout.Label ("Photon時間  " + PhotonNetwork.time.ToString());
 			GUILayout.Label ("プレイヤー機移動時間  " + Player.pushtime);
-			GUILayout.Label ("観客機移動時間  " + Player.specttime);
+			GUILayout.Label ("観客機移動時間  " + Cameracontrol.cctime);
 		}
 	}
 }
