@@ -11,6 +11,7 @@ public class Manager : MonoBehaviour
 	public static Vector3 PspawnPosition = new Vector3 (0.0f, -1.5f, 0.0f);
 	public static bool flag = false;
 	public static string LagTime;
+	public static int startflag = 0;
 
 	// タイトル
 	public GameObject title;
@@ -49,12 +50,19 @@ public class Manager : MonoBehaviour
 			Application.LoadLevel("Stage");
 		}
 
-		if (IsPlaying () == false && StartButton.SB == 1) {
+		if (IsPlaying () == false && StartButton.SB == 1 && mainflag == 0) {
 			GameStart ();
 			flag = true;
 			StartButton.SB = 0;
+			startflag = 1;
+			Debug.Log ("ゲームスタート!");
 		}
 
+		if (startflag == 1 && mainflag == 1) {
+			startflag = 0;
+			GameStart ();
+			Debug.Log ("観客機ゲームスタート");
+		}
 
 	}
 	
