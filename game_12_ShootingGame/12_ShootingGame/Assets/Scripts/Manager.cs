@@ -11,7 +11,7 @@ public class Manager : MonoBehaviour
 	public static Vector3 PspawnPosition = new Vector3 (0.0f, -1.5f, 0.0f);
 	public static bool flag = false;
 	public static string LagTime;
-	public static int startflag = 0;
+	public static string datetime;
 
 	// タイトル
 	public GameObject title;
@@ -47,22 +47,16 @@ public class Manager : MonoBehaviour
 	
 	void Update (){
 		if (IsPlaying () == false && flag == true) {
-			Application.LoadLevel("Stage");
+			Application.LoadLevel ("Stage");
 		}
 
-		if (IsPlaying () == false && StartButton.SB == 1 && mainflag == 0) {
+		if (IsPlaying () == false && StartButton.SB == 1 ) {
 			GameStart ();
 			flag = true;
 			StartButton.SB = 0;
-			startflag = 1;
-			Debug.Log ("ゲームスタート!");
 		}
 
-		if (startflag == 1 && mainflag == 1) {
-			startflag = 0;
-			GameStart ();
-			Debug.Log ("観客機ゲームスタート");
-		}
+		datetime = System.DateTime.Now.ToString ();
 
 	}
 	
@@ -75,7 +69,10 @@ public class Manager : MonoBehaviour
 			var ply = PhotonNetwork.Instantiate ("Player", PspawnPosition, Quaternion.identity, 0);
 			ply.name = "PlayeR";
 		}
+
 	}
+
+
 	
 	public void GameOver ()
 	{
@@ -101,5 +98,6 @@ public class Manager : MonoBehaviour
 		GUILayout.Label ("Photon時間  " + PhotonNetwork.time.ToString());
 		GUILayout.Label ("プレイヤー機移動時間  " + Player.pushtime);
 		GUILayout.Label ("観客機移動時間  " + Player.specttime);
+		GUILayout.Label (datetime);
 	}
 }
