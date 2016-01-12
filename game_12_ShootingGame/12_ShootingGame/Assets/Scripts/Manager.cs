@@ -11,7 +11,9 @@ public class Manager : MonoBehaviour
 	public static Vector3 PspawnPosition = new Vector3 (0.0f, -1.5f, 0.0f);
 	public static bool flag = false;
 	public static string LagTime;
-	public static string datetime;
+	public static string parenttime;
+	public static long diff;
+	public static string Sdiff;
 
 	// タイトル
 	public GameObject title;
@@ -56,7 +58,15 @@ public class Manager : MonoBehaviour
 			StartButton.SB = 0;
 		}
 
-		datetime = System.DateTime.Now.ToString ();
+		parenttime = PhotonNetwork.time.ToString ();
+
+		long oldTicks = System.DateTime.Now.Ticks;
+		PlayerPrefs.SetString ("datetime", oldTicks.ToString ());
+		string dateString = PlayerPrefs.GetString ("datetime");
+		oldTicks = System.Convert.ToInt64 (dateString);
+		long newTicks = System.DateTime.Now.Ticks;
+		diff = ((newTicks - oldTicks) / (1000 * 1000 * 10));
+		Sdiff = diff.ToString();
 
 	}
 	
@@ -97,7 +107,7 @@ public class Manager : MonoBehaviour
 		GUILayout.Space (20);
 		GUILayout.Label ("Photon時間  " + PhotonNetwork.time.ToString());
 		GUILayout.Label ("プレイヤー機移動時間  " + Player.pushtime);
-		GUILayout.Label ("観客機移動時間  " + Player.specttime);
-		GUILayout.Label (datetime);
+		GUILayout.Label ("観客機移動時間  " + Cameracontrol.cctime);
+		GUILayout.Label (Sdiff);
 	}
 }

@@ -44,7 +44,7 @@ public class Player : MonoBehaviour
 	void Update (){
 		if (push == true && Manager.mainflag == 0) {
 			Move ();
-			pushtime = PhotonNetwork.time.ToString();
+			pushtime = System.DateTime.Now.ToString ();
 			timepush = true;
 		}
 
