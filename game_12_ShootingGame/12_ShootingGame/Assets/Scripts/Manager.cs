@@ -91,9 +91,8 @@ public class Manager : MonoBehaviour
 			GUILayout.Label ("観客機です!操作できません!");
 		}
 		GUILayout.Space (20);
-		GUILayout.Label ("Photon時間  " + PhotonNetwork.time.ToString());
-		GUILayout.Label ("プレイヤー機移動時間  " + Player.pushtime);
-		GUILayout.Label ("観客機移動時間  " + Cameracontrol.cctime);
-		GUILayout.Label (Synchronizer.Sdiff);
+		GUILayout.Label ("プレイヤー機ticks数  " + Synchronizer.oldTicks);
+		GUILayout.Label ("観客機ticks数  " + Synchronizer.newTicks);
+		GUILayout.Label ("遅延ticks数  " + Synchronizer.Sdiff);
 	}
 }

@@ -6,6 +6,7 @@ public class Synchronizer : Photon.MonoBehaviour {
 	public static long diff;
 	public static string Sdiff;
 	public static long oldTicks;
+	public static long newTicks;
 
 	void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info){
 		if (stream.isWriting) {
@@ -19,7 +20,7 @@ public class Synchronizer : Photon.MonoBehaviour {
 			oldTicks = System.Convert.ToInt64 (dateString);
 			Debug.Log ("old " + oldTicks);
 
-			long newTicks = System.DateTime.Now.Ticks;	
+			newTicks = System.DateTime.Now.Ticks;	
 			Debug.Log("new " + newTicks);
 			diff = newTicks - oldTicks;
 			Sdiff = diff.ToString();
