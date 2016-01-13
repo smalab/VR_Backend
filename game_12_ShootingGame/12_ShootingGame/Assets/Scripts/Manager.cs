@@ -93,6 +93,7 @@ public class Manager : MonoBehaviour
 		GUILayout.Space (20);
 		GUILayout.Label ("プレイヤー機ticks数  " + Synchronizer.oldTicks);
 		GUILayout.Label ("観客機ticks数  " + Synchronizer.newTicks);
-		GUILayout.Label ("遅延ticks数  " + Synchronizer.Sdiff);
+		GUILayout.Label ("ticks差分  " + Synchronizer.ddiff);
+		GUILayout.Label ("遅延時間  0.000" + Synchronizer.Sdiff + "秒");
 	}
 }

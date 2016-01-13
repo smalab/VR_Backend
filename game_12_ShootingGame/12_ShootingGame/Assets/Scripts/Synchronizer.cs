@@ -5,6 +5,7 @@ public class Synchronizer : Photon.MonoBehaviour {
 
 	public static long diff;
 	public static string Sdiff;
+	public static string ddiff;
 	public static long oldTicks;
 	public static long newTicks;
 
@@ -23,6 +24,8 @@ public class Synchronizer : Photon.MonoBehaviour {
 			newTicks = System.DateTime.Now.Ticks;	
 			Debug.Log("new " + newTicks);
 			diff = newTicks - oldTicks;
+			ddiff = diff.ToString();
+			diff = diff / 100;
 			Sdiff = diff.ToString();
 
 		} else {
