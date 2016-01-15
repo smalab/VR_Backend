@@ -2,12 +2,12 @@
 using System.Collections;
 
 public class Synchronizer : Photon.MonoBehaviour {
-
-	public static long diff;
+	
 	public static string Sdiff;
 	public static string ddiff;
 	public static long oldTicks;
 	public static long newTicks;
+	public static long diff;
 
 	void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info){
 		if (stream.isWriting) {
@@ -19,10 +19,8 @@ public class Synchronizer : Photon.MonoBehaviour {
 			PlayerPrefs.SetString ("datetime", oldTicks.ToString ());
 			string dateString = PlayerPrefs.GetString ("datetime");
 			oldTicks = System.Convert.ToInt64 (dateString);
-			Debug.Log ("old " + oldTicks);
 
 			newTicks = System.DateTime.Now.Ticks;	
-			Debug.Log("new " + newTicks);
 			diff = newTicks - oldTicks;
 			ddiff = diff.ToString();
 			diff = diff / 100;

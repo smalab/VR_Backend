@@ -10,7 +10,6 @@ public class Manager : MonoBehaviour
 	public static Vector3 CspawnPosition = new Vector3 (0.0f, -1.5f, -4.0f);
 	public static Vector3 PspawnPosition = new Vector3 (0.0f, -1.5f, 0.0f);
 	public static bool flag = false;
-	public static string LagTime;
 
 	// タイトル
 	public GameObject title;

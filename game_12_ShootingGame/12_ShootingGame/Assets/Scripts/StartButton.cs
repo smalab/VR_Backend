@@ -9,11 +9,6 @@ public class StartButton : MonoBehaviour {
 	void Start () {
 		SB = 0;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-
-	}
 
 	public void ButtonPush(){
 		SB = 1;

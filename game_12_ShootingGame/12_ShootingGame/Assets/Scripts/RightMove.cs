@@ -7,7 +7,6 @@ public class RightMove : MonoBehaviour {
 	}
 
 	public void ButtonPush(){
-		Debug.Log ("おされた");
 	}
 
 	void Update(){

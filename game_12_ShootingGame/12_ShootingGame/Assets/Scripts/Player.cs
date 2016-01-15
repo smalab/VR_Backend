@@ -10,10 +10,8 @@ public class Player : MonoBehaviour
 	int yMoveLimitMin = -3;
 	int yMoveLimitMax = 3;
 	public static bool push = false;
-	public static int pflag = 0;
-	public static string pushtime;
 	public static bool timepush = false;
-	public static string specttime;
+	public static int pflag = 0;
 	
 	IEnumerator Start ()
 	{
@@ -44,12 +42,10 @@ public class Player : MonoBehaviour
 	void Update (){
 		if (push == true && Manager.mainflag == 0) {
 			Move ();
-			pushtime = System.DateTime.Now.ToString ();
 			timepush = true;
 		}
 
 		if (timepush == true) {
-			specttime = PhotonNetwork.time.ToString ();
 			timepush = false;
 		}
 
