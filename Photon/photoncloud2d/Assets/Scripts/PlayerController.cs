@@ -7,7 +7,6 @@ public class PlayerController : MonoBehaviour {
 	public static int pflag = 0;
 	// Use this for initialization
 	void Start () {
-		
 	}
 	
 	// Update is called once per frame
@@ -32,6 +31,4 @@ public class PlayerController : MonoBehaviour {
 		// 現在の位置に加算減算を行ったPositionを代入する
 		transform.position = Position;
 	}
-	
-	
 }
